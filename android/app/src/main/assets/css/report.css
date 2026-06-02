@@ -1,0 +1,145 @@
+.view-report {
+  overflow: hidden;
+}
+
+.report-overview {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.report-side-stack,
+.report-main-stack {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.report-side-stack {
+  grid-template-rows: auto minmax(0, 1fr);
+}
+
+.report-main-stack {
+  grid-template-rows: minmax(0, 1fr) auto;
+}
+
+.report-brief .panel-card__body,
+.report-controls .panel-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+}
+
+.report-chart-panel {
+  min-height: 0;
+}
+
+.report-chart-panel .panel-card__body {
+  display: grid;
+  grid-template-rows: minmax(240px, 34vh) minmax(0, 1fr);
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.report-chart-frame {
+  min-height: clamp(240px, 34vh, 420px);
+  padding: 10px;
+  border: 1px solid rgba(17, 24, 28, 0.14);
+  background: rgba(255, 255, 255, 0.36);
+}
+
+.report-chart-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.report-summary {
+  min-height: 0;
+}
+
+.report-summary .table-shell {
+  max-height: 100%;
+}
+
+.report-conclusion {
+  min-height: 150px;
+}
+
+.report-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: auto;
+}
+
+.report-hint {
+  padding: 10px 12px;
+  border: 1px solid rgba(179, 138, 71, 0.2);
+  background: rgba(179, 138, 71, 0.1);
+  color: #6f4b17;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.report-support-panels {
+  margin-top: 0;
+}
+
+.report-validation {
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  border: 1px solid rgba(17, 24, 28, 0.12);
+  background: rgba(255, 255, 255, 0.34);
+}
+
+.report-validation.is-success {
+  border-color: rgba(95, 134, 104, 0.24);
+  background: rgba(95, 134, 104, 0.12);
+}
+
+.report-validation.is-warning {
+  border-color: rgba(179, 138, 71, 0.24);
+  background: rgba(179, 138, 71, 0.12);
+}
+
+.report-validation__title {
+  font-weight: 700;
+}
+
+.report-validation__copy {
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 1023px) {
+  .report-overview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .report-side-stack,
+  .report-main-stack {
+    grid-template-rows: auto;
+  }
+
+  .report-chart-panel .panel-card__body {
+    overflow: visible;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .report-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .report-actions .retro-button {
+    flex: 1 1 100%;
+  }
+}

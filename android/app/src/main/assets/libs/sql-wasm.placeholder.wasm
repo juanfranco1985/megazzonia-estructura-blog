@@ -1,0 +1,2 @@
+sql.js binary placeholder for the offline MVP.
+The app uses the local compatibility adapter in sql-wasm.js when the real wasm bundle is not bundled.

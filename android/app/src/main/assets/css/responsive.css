@@ -1,0 +1,641 @@
+:root {
+  --shell-sidebar: clamp(220px, 18vw, 292px);
+  --shell-context: clamp(250px, 20vw, 360px);
+  --shell-gap: clamp(10px, 1.1vw, 14px);
+  --shell-padding: clamp(12px, 1.4vw, 18px);
+  --view-gap: clamp(10px, 1vw, 16px);
+  --panel-radius: 12px;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+
+body {
+  overflow: hidden;
+  overscroll-behavior: none;
+}
+
+#app,
+.app-shell {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.app-shell {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+}
+
+.status-bar {
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px var(--shell-gap);
+  padding-inline: var(--shell-padding);
+}
+
+.status-bar__meta,
+.status-bar__metrics {
+  min-width: 0;
+  flex: 1 1 auto;
+}
+
+.status-bar__metrics {
+  justify-content: flex-end;
+}
+
+.shell-grid {
+  min-height: 0;
+  gap: var(--shell-gap);
+  padding: var(--shell-padding);
+  grid-template-columns: minmax(220px, var(--shell-sidebar)) minmax(0, 1fr) minmax(250px, var(--shell-context));
+}
+
+.shell-grid > * {
+  min-width: 0;
+  min-height: 0;
+}
+
+.dock-panel,
+.context-panel,
+.workspace-panel,
+.window-frame,
+.window-frame__body,
+#view-slot,
+.view {
+  min-width: 0;
+  min-height: 0;
+}
+
+.workspace-panel {
+  display: flex;
+}
+
+.window-frame {
+  width: 100%;
+}
+
+.window-frame__body {
+  display: flex;
+  padding: var(--shell-padding);
+  overflow: hidden;
+}
+
+.window-frame__body[data-active-view="home"],
+.window-frame__body[data-active-view="inbox"],
+.window-frame__body[data-active-view="projects"],
+.window-frame__body[data-active-view="career"] {
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+}
+
+#view-slot {
+  display: flex;
+  flex: 1;
+  overflow: hidden;
+}
+
+.window-frame__body[data-active-view="home"] > #view-slot,
+.window-frame__body[data-active-view="inbox"] > #view-slot,
+.window-frame__body[data-active-view="projects"] > #view-slot,
+.window-frame__body[data-active-view="career"] > #view-slot {
+  display: block;
+  overflow: visible;
+  flex: 1 0 auto;
+}
+
+.view {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: var(--view-gap);
+}
+
+.view-home,
+.view-projects,
+.view-career,
+.view-inbox {
+  overflow: visible;
+  padding-right: 4px;
+}
+
+.view-files,
+.view-terminal,
+.view-report {
+  overflow: hidden;
+}
+
+.view-inbox .mail-detail__messages {
+  max-height: none;
+}
+
+.view-files .file-detail,
+.view-terminal .terminal-result-panel,
+.view-report .report-chart-panel {
+  min-height: 0;
+}
+
+.view-head {
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 0;
+}
+
+.view-head__meta {
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.home-hero__grid,
+.split-panels {
+  gap: var(--shell-gap);
+}
+
+.home-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+}
+
+.split-panels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.card-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--shell-gap);
+}
+
+.mini-thread-list {
+  display: grid;
+  gap: 8px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.panel-card,
+.hero-panel,
+.stat-card,
+.mail-detail,
+.thread-row,
+.file-row,
+.taskbar-button,
+.dock-launch,
+.toast,
+.modal-card,
+.empty-state,
+.list-item {
+  border-radius: var(--panel-radius);
+}
+
+.panel-card,
+.panel-card__body,
+.mail-detail,
+.file-detail,
+.terminal-editor-panel,
+.terminal-result-panel,
+.report-controls,
+.report-chart-panel {
+  min-height: 0;
+}
+
+.panel-card {
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-card__body {
+  min-height: 0;
+}
+
+.table-shell {
+  max-width: 100%;
+  overflow: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+}
+
+.data-table {
+  min-width: 100%;
+  width: max-content;
+}
+
+.data-table th,
+.data-table td {
+  white-space: nowrap;
+}
+
+.thread-list-panel,
+.file-list-panel {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.thread-list,
+.file-list {
+  min-height: 0;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.thread-list {
+  overflow: visible;
+  padding-right: 0;
+}
+
+.mail-layout,
+.files-layout,
+.terminal-layout,
+.report-layout {
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+
+.mail-layout {
+  grid-template-columns: minmax(300px, 0.92fr) minmax(0, 1.08fr);
+  align-items: start;
+}
+
+.files-layout {
+  grid-template-columns: minmax(300px, 0.88fr) minmax(0, 1.12fr);
+}
+
+.mail-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.mail-detail__scroll {
+  flex: 1;
+  min-height: 0;
+  overflow: visible;
+  padding-right: 0;
+}
+
+.mail-detail__messages {
+  flex: 1 0 auto;
+  min-height: auto;
+  overflow: visible;
+  padding-right: 0;
+}
+
+.file-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-detail .panel-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.terminal-layout {
+  grid-template-columns: minmax(360px, 1.08fr) minmax(0, 0.92fr);
+}
+
+.terminal-editor-panel .panel-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+.terminal-editor {
+  min-height: clamp(220px, 34vh, 360px);
+}
+
+.terminal-result-panel .panel-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.terminal-subpanel {
+  min-width: 0;
+}
+
+.terminal-subpanel .table-shell {
+  max-height: clamp(220px, 34vh, 420px);
+}
+
+.history-list {
+  max-height: clamp(160px, 24vh, 260px);
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.report-layout {
+  grid-template-columns: minmax(300px, 0.86fr) minmax(0, 1.14fr);
+}
+
+.report-controls .panel-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+
+.report-chart-panel .panel-card__body {
+  display: grid;
+  grid-template-rows: auto minmax(230px, 34vh) minmax(0, 1fr);
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.report-chart-frame {
+  min-height: clamp(240px, 34vh, 420px);
+}
+
+.report-chart-canvas {
+  width: 100%;
+  height: 100%;
+  min-height: 240px;
+}
+
+.report-summary .table-shell {
+  max-height: clamp(180px, 30vh, 300px);
+}
+
+.taskbar {
+  padding-inline: var(--shell-padding);
+}
+
+.taskbar-nav {
+  flex-wrap: nowrap;
+  gap: 8px;
+  min-width: 0;
+}
+
+.taskbar-button {
+  flex: 0 0 auto;
+  min-width: 0;
+  padding: 10px 12px;
+}
+
+.taskbar-status {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.toast-stack {
+  pointer-events: none;
+  max-height: calc(100dvh - 24px);
+  overflow: auto;
+}
+
+.toast {
+  pointer-events: auto;
+}
+
+.modal-backdrop {
+  padding: 20px;
+}
+
+.modal-card {
+  width: min(620px, 100%);
+}
+
+button:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+input:focus-visible {
+  outline: 2px solid rgba(79, 110, 131, 0.85);
+  outline-offset: 2px;
+}
+
+@media (min-width: 1440px) {
+  .shell-grid {
+    grid-template-columns: minmax(250px, 300px) minmax(0, 1fr) minmax(280px, 380px);
+  }
+
+  .terminal-layout {
+    grid-template-columns: minmax(420px, 1.14fr) minmax(0, 0.86fr);
+  }
+
+  .table-shell--results {
+    max-height: 46vh;
+  }
+
+  .window-frame__body {
+    padding: clamp(16px, 1.4vw, 20px);
+  }
+
+  .home-hero__header h1 {
+    font-size: 1.7rem;
+  }
+
+  .card-grid {
+    gap: 14px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .shell-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+  }
+
+  .context-panel {
+    display: none;
+  }
+
+  .home-hero__grid,
+  .split-panels,
+  .mail-layout,
+  .files-layout,
+  .terminal-layout,
+  .report-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .view-inbox,
+  .view-files,
+  .view-terminal {
+    overflow: auto;
+    padding-right: 2px;
+  }
+
+  .mail-layout,
+  .files-layout {
+    min-height: auto;
+  }
+
+  .thread-list,
+  .file-list,
+  .mail-detail__scroll,
+  .file-detail .panel-card__body {
+    overflow: visible;
+    max-height: none;
+    padding-right: 0;
+  }
+
+  .terminal-context-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .terminal-editor-toolbar,
+  .terminal-panel-head,
+  .terminal-editor-toolbar > div,
+  .terminal-panel-head > div {
+    width: 100%;
+  }
+
+  .terminal-editor-toolbar,
+  .terminal-panel-head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .terminal-output-meta,
+  .terminal-editor-status {
+    justify-content: flex-start;
+  }
+
+  .card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .mini-thread-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .status-bar__meta,
+  .status-bar__metrics {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .taskbar-nav {
+    flex-wrap: wrap;
+  }
+
+  .taskbar-button__label {
+    display: none;
+  }
+
+  .taskbar-status {
+    width: 100%;
+    margin-left: 0;
+    justify-content: space-between;
+  }
+
+  .view-head {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 767px) {
+  .status-bar {
+    padding-block: 10px;
+  }
+
+  .status-bar__brand {
+    width: 100%;
+  }
+
+  .status-bar__meta,
+  .status-bar__metrics {
+    gap: 6px;
+  }
+
+  .shell-grid {
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .dock-panel__body {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .dock-launch {
+    min-height: 54px;
+  }
+
+  .card-grid,
+  .mini-thread-list {
+    grid-template-columns: 1fr;
+  }
+
+  .terminal-context-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .terminal-actions .retro-button {
+    min-width: 0;
+    flex: 1 1 100%;
+  }
+
+  .table-shell {
+    border-radius: 10px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 7px 8px;
+    font-size: 0.78rem;
+  }
+
+  .taskbar {
+    padding: 8px;
+  }
+
+  .taskbar-button {
+    padding: 9px 10px;
+  }
+
+  .toast-stack {
+    left: 12px;
+    right: 12px;
+    top: auto;
+    bottom: 72px;
+    width: auto;
+  }
+
+  .modal-backdrop {
+    align-items: flex-end;
+    padding: 12px;
+  }
+
+  .modal-card {
+    width: 100%;
+  }
+
+  .view-home,
+  .view-career {
+    padding-right: 2px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

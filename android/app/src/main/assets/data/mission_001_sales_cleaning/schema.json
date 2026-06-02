@@ -1,0 +1,50 @@
+{
+  "mission_id": "mission_001_sales_cleaning",
+  "source_file": "raw/sales_dirty.csv",
+  "raw_table": {
+    "name": "sales_raw",
+    "description": "Import directo del CSV sin modificar.",
+    "columns": [
+      { "name": "order_id", "type": "text" },
+      { "name": "customer_name", "type": "text" },
+      { "name": "region", "type": "text" },
+      { "name": "sale_date", "type": "text" },
+      { "name": "sales_channel", "type": "text" },
+      { "name": "product_category", "type": "text" },
+      { "name": "amount", "type": "text" },
+      { "name": "salesperson", "type": "text" },
+      { "name": "status", "type": "text" }
+    ]
+  },
+  "clean_table": {
+    "name": "sales_clean",
+    "description": "Vista normalizada para análisis: fechas ISO, monto numérico, canal y estado consolidados, duplicados removidos.",
+    "columns": [
+      { "name": "order_id", "type": "text" },
+      { "name": "customer_name", "type": "text" },
+      { "name": "region", "type": "text" },
+      { "name": "sale_date", "type": "text", "format": "YYYY-MM-DD" },
+      { "name": "sales_channel", "type": "text" },
+      { "name": "product_category", "type": "text" },
+      { "name": "amount", "type": "real" },
+      { "name": "salesperson", "type": "text" },
+      { "name": "status_norm", "type": "text" },
+      { "name": "source_row", "type": "integer" },
+      { "name": "row_quality", "type": "text" }
+    ]
+  },
+  "quality_issues": [
+    "Fechas con múltiples formatos.",
+    "Espacios extra y casing inconsistente.",
+    "Canales escritos como website, web, online, retail, store, reseller, partner y direct.",
+    "Montos vacíos, nulos o con símbolos monetarios.",
+    "Estados sin normalizar: complete, completed, paid, pending, refunded y cancelled.",
+    "Filas duplicadas por order_id."
+  ],
+  "validation_notes": [
+    "El corte temporal correcto es 2026-04-06 a 2026-04-12 inclusive.",
+    "La validación debe priorizar registros con status normalizado como completed.",
+    "El canal ganador esperado es Web cuando el corte y la limpieza se aplican correctamente.",
+    "El gráfico recomendado para comparar canales es bar."
+  ]
+}

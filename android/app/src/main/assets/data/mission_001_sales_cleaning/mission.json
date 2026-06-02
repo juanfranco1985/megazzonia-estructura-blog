@@ -1,0 +1,67 @@
+{
+  "id": "mission_001_sales_cleaning",
+  "slug": "sales-cleaning",
+  "title": "Canal semanal con mayor venta",
+  "status": "locked",
+  "priority": "high",
+  "stakeholder_id": "carla_mendez",
+  "week_window": {
+    "start": "2026-04-06",
+    "end": "2026-04-12"
+  },
+  "narrative": "Primera semana laboral. El gerente comercial necesita una respuesta ejecutiva sobre qué canal vendió más la semana pasada, pero el export llegó sucio: hay fechas mezcladas, duplicados, montos vacíos y estados no normalizados.",
+  "business_goal": "Responder con claridad qué canal generó mayor volumen de ventas dentro de la semana pedida y dejar la respuesta lista para comité.",
+  "analytical_goal": "Normalizar el export, eliminar duplicados, filtrar registros válidos, agrupar por canal y evaluar el total vendido por canal.",
+  "attachments": [
+    {
+      "id": "sales_dirty_csv",
+      "name": "sales_dirty.csv",
+      "type": "csv",
+      "path": "data/mission_001_sales_cleaning/raw/sales_dirty.csv",
+      "label": "raw export"
+    },
+    {
+      "id": "schema_json",
+      "name": "schema.json",
+      "type": "json",
+      "path": "data/mission_001_sales_cleaning/schema.json",
+      "label": "analysis schema"
+    }
+  ],
+  "skills_taught": [
+    "data_cleaning",
+    "date_normalization",
+    "duplicate_detection",
+    "sql_grouping",
+    "executive_reporting"
+  ],
+  "prestige_reward": 25,
+  "pains": [
+    "El gerente quiere una respuesta rápida, pero no acepta números dudosos.",
+    "El export contiene varias versiones del mismo dato y algunos pedidos no deberían entrar en el corte semanal.",
+    "La entrega debe ser breve, creíble y defendible."
+  ],
+  "hints": [
+    "No confíes en mayúsculas, espacios o formatos de fecha inconsistentes.",
+    "Revisa el estado del pedido antes de sumar importes.",
+    "El corte de análisis es del 2026-04-06 al 2026-04-12."
+  ],
+  "expected_answer": {
+    "winning_channel": "Web",
+    "metric": "total_amount",
+    "recommended_chart": "bar"
+  },
+  "common_errors": [
+    "Olvidar filtrar la semana pedida.",
+    "Sumar filas duplicadas.",
+    "Incluir montos vacíos o inválidos.",
+    "Agrupar por valores crudos sin normalizar canales.",
+    "Elegir un gráfico que no compare bien los canales."
+  ],
+  "success_criteria": [
+    "El reporte identifica correctamente el canal ganador.",
+    "La consulta usa una base limpia y un corte temporal correcto.",
+    "La conclusión ejecutiva es clara y breve.",
+    "La visualización elegida ayuda a comparar canales."
+  ]
+}

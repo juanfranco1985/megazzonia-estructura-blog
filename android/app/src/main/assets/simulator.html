@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Cache-Control" content="no-store" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta name="theme-color" content="#657782" />
+  <title>Data Analyst Career Simulator</title>
+  <link rel="icon" href="data:," />
+  <link rel="stylesheet" href="./css/styles.css?v=dacs-20260429b" />
+  <link rel="stylesheet" href="./css/layout.css?v=dacs-20260429b" />
+  <link rel="stylesheet" href="./css/components.css?v=dacs-20260429b" />
+  <link rel="stylesheet" href="./css/desktop.css?v=dacs-20260429b" />
+  <link rel="stylesheet" href="./css/inbox.css?v=dacs-20260429b" />
+  <link rel="stylesheet" href="./css/files.css?v=dacs-20260429b" />
+  <link rel="stylesheet" href="./css/terminal.css?v=dacs-20260429b" />
+  <link rel="stylesheet" href="./css/report.css?v=dacs-20260429b" />
+  <link rel="stylesheet" href="./css/career.css?v=dacs-20260429b" />
+  <link rel="stylesheet" href="./css/projects.css?v=dacs-20260429b" />
+  <link rel="stylesheet" href="./css/responsive.css?v=dacs-20260429b" />
+  <link rel="stylesheet" href="./css/simulator-shell.css?v=dacs-20260429b" />
+</head>
+<body class="app-mode-simulator">
+  <div id="app"></div>
+  <script>
+    (function bootstrapSimulator() {
+      const app = document.getElementById("app");
+      const assetVersion = "dacs-20260429b";
+      const localUrl = `http://127.0.0.1:8090/LABORATORIO%20MEGAZZONIA%20estructura%20blog/android/app/src/main/assets/simulator.html?v=${assetVersion}#inbox`;
+
+      if (window.location.protocol === "file:") {
+        document.body.style.overflow = "auto";
+        app.innerHTML = `
+          <main style="min-height:100vh;display:grid;place-items:center;padding:24px;">
+            <section style="max-width:680px;border:1px solid rgba(24,31,35,.22);background:#fff;padding:24px;font-family:Tahoma,'Segoe UI',sans-serif;color:#172024;">
+              <div style="font-size:.76rem;letter-spacing:.12em;text-transform:uppercase;color:#52616b;margin-bottom:8px;">Apertura local</div>
+              <h1 style="margin:0 0 10px;font-size:2rem;">El simulador necesita HTTP</h1>
+              <p style="margin:0 0 14px;color:#52616b;line-height:1.5;">El navegador bloquea los modulos JavaScript cuando este archivo se abre como file://. Ejecuta abrir-laboratorio.bat o levanta el servidor con cmd /c npm.cmd run dev.</p>
+              <a style="display:inline-flex;padding:10px 12px;border:1px solid rgba(24,31,35,.2);background:#2f6f62;color:#fff;text-decoration:none;font-weight:700;" href="${localUrl}">Abrir simulador por HTTP</a>
+            </section>
+          </main>
+        `;
+        return;
+      }
+
+      function loadScript(src, type) {
+        return new Promise((resolve, reject) => {
+          const script = document.createElement("script");
+          script.src = src;
+          if (type) {
+            script.type = type;
+          }
+          script.onload = resolve;
+          script.onerror = reject;
+          document.body.appendChild(script);
+        });
+      }
+
+      loadScript(`./libs/sql-wasm.js?v=${assetVersion}`)
+        .then(() => loadScript(`./libs/chart.umd.js?v=${assetVersion}`))
+        .then(() => loadScript(`./js/main.js?v=${assetVersion}`, "module"))
+        .catch((error) => {
+          app.innerHTML = `<main style="padding:24px;font-family:Tahoma,'Segoe UI',sans-serif;"><h1>No se pudo iniciar el simulador</h1><p>${String(error)}</p></main>`;
+        });
+    })();
+  </script>
+</body>
+</html>

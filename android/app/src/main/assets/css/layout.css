@@ -1,0 +1,349 @@
+.status-bar {
+  min-height: 52px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  background: linear-gradient(180deg, #7d8d95 0%, #65757f 100%);
+  color: #f2f7f4;
+  border-bottom: 1px solid rgba(17, 22, 25, 0.34);
+}
+
+.status-bar__brand,
+.status-bar__meta,
+.status-bar__metrics {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.status-bar__logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.38);
+  background: rgba(255, 255, 255, 0.14);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.status-bar__name {
+  font-weight: 700;
+}
+
+.shell-grid {
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: 220px minmax(0, 1fr) 280px;
+  gap: 12px;
+  padding: 12px;
+}
+
+.dock-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.dock-panel__header,
+.dock-panel__footer {
+  background: linear-gradient(180deg, #dfe4df 0%, #c8cfc9 100%);
+  border-radius: var(--radius);
+  padding: 12px;
+  border: 1px solid rgba(17, 24, 28, 0.18);
+}
+
+.dock-panel__header {
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.76rem;
+}
+
+.dock-panel__footer {
+  margin-top: auto;
+}
+
+.dock-panel__body {
+  display: grid;
+  gap: 8px;
+}
+
+.dock-launch {
+  width: 100%;
+  padding: 10px 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(180deg, #edf1ed 0%, #cad0cb 100%);
+}
+
+.dock-launch__icon {
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(19, 24, 27, 0.24);
+  background: rgba(255, 255, 255, 0.52);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.dock-launch__text {
+  flex: 1;
+  text-align: left;
+}
+
+.dock-mini-label {
+  font-size: 0.72rem;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.dock-mini-value {
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+.workspace-panel {
+  min-width: 0;
+}
+
+.window-frame {
+  height: 100%;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #dfe4de 0%, #c9d0ca 100%);
+  overflow: hidden;
+}
+
+.window-frame__titlebar {
+  min-height: 36px;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(180deg, #6f8390 0%, #566874 100%);
+  color: #f4f8f5;
+}
+
+.window-frame__title {
+  font-size: 0.86rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.window-frame__controls {
+  display: flex;
+  gap: 6px;
+}
+
+.window-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(12, 18, 21, 0.25);
+}
+
+.window-frame__body {
+  min-height: 0;
+  flex: 1;
+  overflow: auto;
+  padding: 14px;
+}
+
+.context-panel {
+  display: grid;
+  gap: 12px;
+  align-content: start;
+}
+
+.taskbar {
+  min-height: 64px;
+  padding: 10px 12px;
+  background: linear-gradient(180deg, #62707b 0%, #48555f 100%);
+  border-top: 1px solid rgba(18, 24, 27, 0.32);
+}
+
+.taskbar-nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.taskbar-spacer {
+  flex: 1;
+}
+
+.taskbar-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  border-radius: 4px;
+  background: linear-gradient(180deg, #e4e9e4 0%, #c7cfc8 100%);
+}
+
+.taskbar-button.is-active {
+  background: linear-gradient(180deg, #f3f7f3 0%, #d1d8d1 100%);
+}
+
+.taskbar-button__short {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 34px;
+  padding: 2px 5px;
+  border: 1px solid rgba(18, 24, 27, 0.18);
+  background: rgba(255, 255, 255, 0.5);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.taskbar-button__label {
+  font-size: 0.84rem;
+  font-weight: 600;
+}
+
+.taskbar-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #edf3ef;
+  font-size: 0.82rem;
+}
+
+.taskbar-status__item {
+  padding: 4px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.nav-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nav-pill {
+  padding: 8px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(20, 28, 32, 0.2);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.nav-pill.is-active {
+  background: rgba(79, 110, 131, 0.18);
+}
+
+.boot-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(14, 18, 21, 0.22);
+  z-index: 5;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.boot-overlay[hidden] {
+  display: none;
+}
+
+.boot-overlay.is-visible {
+  opacity: 1;
+}
+
+.boot-card {
+  min-width: 320px;
+  max-width: 88vw;
+  padding: 18px 20px;
+  background: linear-gradient(180deg, #e8ece8 0%, #cfd6cf 100%);
+  border: 1px solid rgba(19, 24, 27, 0.2);
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.8),
+    inset -1px -1px 0 rgba(55, 63, 68, 0.15),
+    0 24px 48px rgba(17, 24, 28, 0.24);
+}
+
+.boot-card__title {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+
+.boot-card__subtitle {
+  margin-top: 6px;
+  color: var(--muted);
+}
+
+.boot-card__hint {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.boot-progress {
+  margin-top: 14px;
+  height: 14px;
+  border: 1px solid rgba(19, 24, 27, 0.22);
+  background: rgba(255, 255, 255, 0.38);
+  overflow: hidden;
+}
+
+.boot-progress span {
+  display: block;
+  height: 100%;
+  width: 72%;
+  background: linear-gradient(180deg, #6f8f7d, #4c6c59);
+  animation: boot-progress 1.8s ease-in-out infinite alternate;
+}
+
+@keyframes boot-progress {
+  from {
+    width: 32%;
+  }
+  to {
+    width: 78%;
+  }
+}
+
+@media (max-width: 1180px) {
+  .shell-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .context-panel {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .status-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .context-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .taskbar-nav {
+    flex-wrap: wrap;
+  }
+}

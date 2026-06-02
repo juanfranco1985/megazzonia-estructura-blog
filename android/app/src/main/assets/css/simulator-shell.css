@@ -1,0 +1,375 @@
+.app-mode-simulator {
+  --bg-0: #0d1410;
+  --bg-1: #17231b;
+  --bg-2: #2a241a;
+  --panel: #17231b;
+  --panel-alt: #1e2d22;
+  --panel-deep: #2d271d;
+  --chrome: #244131;
+  --chrome-dark: #111a14;
+  --chrome-light: #d8e7d6;
+  --text: #e9f2e7;
+  --muted: #aebaa9;
+  --accent: #7ea86b;
+  --accent-2: #a5794f;
+  --warning: #c59a58;
+  --danger: #c36c57;
+  --success: #7fb879;
+  --shadow: rgba(0, 0, 0, 0.46);
+  --shadow-soft: rgba(0, 0, 0, 0.28);
+  color: var(--text);
+  background:
+    radial-gradient(circle at 18% 0%, rgba(126, 168, 107, 0.18), transparent 30%),
+    radial-gradient(circle at 88% 18%, rgba(165, 121, 79, 0.18), transparent 28%),
+    linear-gradient(135deg, #0a100d 0%, #111b14 48%, #231d14 100%);
+}
+
+.app-mode-simulator::before {
+  opacity: 0.34;
+  background:
+    linear-gradient(rgba(126, 168, 107, 0.035), rgba(126, 168, 107, 0.035)),
+    repeating-linear-gradient(
+      180deg,
+      rgba(232, 245, 229, 0.048) 0,
+      rgba(232, 245, 229, 0.048) 1px,
+      transparent 1px,
+      transparent 4px
+    );
+}
+
+.app-mode-simulator::after {
+  opacity: 0.55;
+  background: radial-gradient(circle at center, transparent 34%, rgba(0, 0, 0, 0.36) 100%);
+}
+
+.app-mode-simulator .status-bar,
+.app-mode-simulator .taskbar,
+.app-mode-simulator .window-frame__titlebar,
+.app-mode-simulator .panel-card__title,
+.app-mode-simulator .mail-detail__header {
+  background: linear-gradient(180deg, #244131 0%, #142219 100%);
+  color: #eef8eb;
+  border-color: rgba(126, 168, 107, 0.3);
+}
+
+.app-mode-simulator .status-bar {
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.22);
+}
+
+.app-mode-simulator .status-bar__logo {
+  background: rgba(126, 168, 107, 0.18);
+  border-color: rgba(218, 235, 213, 0.38);
+  color: #e9f7e4;
+}
+
+.app-mode-simulator .status-bar__meta span,
+.app-mode-simulator .status-bar__metrics span,
+.app-mode-simulator .taskbar-status__item {
+  background: rgba(126, 168, 107, 0.1);
+  border: 1px solid rgba(126, 168, 107, 0.24);
+  color: #d9ead5;
+}
+
+.app-mode-simulator .window-frame,
+.app-mode-simulator .dock-panel__header,
+.app-mode-simulator .dock-panel__footer,
+.app-mode-simulator .panel-card,
+.app-mode-simulator .hero-panel,
+.app-mode-simulator .stat-card,
+.app-mode-simulator .mail-detail,
+.app-mode-simulator .thread-row,
+.app-mode-simulator .file-row,
+.app-mode-simulator .toast,
+.app-mode-simulator .modal-card,
+.app-mode-simulator .empty-state,
+.app-mode-simulator .list-item,
+.app-mode-simulator .sim-command-panel,
+.app-mode-simulator .sim-step {
+  background: linear-gradient(180deg, rgba(29, 44, 34, 0.96) 0%, rgba(20, 30, 23, 0.98) 100%);
+  border-color: rgba(126, 168, 107, 0.24);
+  box-shadow:
+    inset 1px 1px 0 rgba(230, 247, 225, 0.08),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.32),
+    0 18px 36px rgba(0, 0, 0, 0.24);
+  color: var(--text);
+}
+
+.app-mode-simulator .window-frame {
+  background: rgba(10, 16, 13, 0.72);
+}
+
+.app-mode-simulator .window-frame__body {
+  background:
+    linear-gradient(rgba(126, 168, 107, 0.025), rgba(126, 168, 107, 0.025)),
+    rgba(8, 13, 10, 0.42);
+}
+
+.app-mode-simulator .dock-launch,
+.app-mode-simulator .taskbar-button,
+.app-mode-simulator .retro-button,
+.app-mode-simulator .retro-select,
+.app-mode-simulator .retro-input,
+.app-mode-simulator .retro-textarea {
+  background: linear-gradient(180deg, #263b2e 0%, #17241b 100%);
+  border-color: rgba(126, 168, 107, 0.3);
+  color: #eef8eb;
+  box-shadow:
+    inset 1px 1px 0 rgba(234, 248, 229, 0.08),
+    inset -1px -1px 0 rgba(0, 0, 0, 0.32);
+}
+
+.app-mode-simulator .dock-launch.is-active,
+.app-mode-simulator .taskbar-button.is-active,
+.app-mode-simulator .retro-button.is-primary {
+  background: linear-gradient(180deg, #7ea86b 0%, #3c7048 100%);
+  color: #08110b;
+  border-color: rgba(213, 236, 206, 0.44);
+}
+
+.app-mode-simulator .dock-launch--danger,
+.app-mode-simulator .retro-button--danger {
+  background: linear-gradient(180deg, #5c3f2b 0%, #332519 100%);
+  border-color: rgba(197, 154, 88, 0.36);
+}
+
+.app-mode-simulator .dock-launch__icon,
+.app-mode-simulator .taskbar-button__short,
+.app-mode-simulator .taskbar-button__badge {
+  background: rgba(165, 121, 79, 0.18);
+  border-color: rgba(197, 154, 88, 0.35);
+  color: #f1dfc8;
+}
+
+.app-mode-simulator .eyebrow,
+.app-mode-simulator p,
+.app-mode-simulator .stat-card__note,
+.app-mode-simulator .context-row span,
+.app-mode-simulator .thread-row__meta,
+.app-mode-simulator .thread-row__preview,
+.app-mode-simulator .file-row__meta,
+.app-mode-simulator .file-row__preview,
+.app-mode-simulator .mail-detail__mission-copy,
+.app-mode-simulator .terminal-footnote,
+.app-mode-simulator .toast__message,
+.app-mode-simulator .modal-card__body,
+.app-mode-simulator .empty-state__body {
+  color: var(--muted);
+}
+
+.app-mode-simulator .context-row {
+  border-bottom-color: rgba(126, 168, 107, 0.14);
+}
+
+.app-mode-simulator .context-row strong {
+  color: #eef8eb;
+}
+
+.app-mode-simulator .context-note {
+  margin-bottom: 12px;
+}
+
+.app-mode-simulator .context-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.app-mode-simulator .context-actions--stack {
+  display: grid;
+}
+
+.app-mode-simulator .mail-message,
+.app-mode-simulator .terminal-summary,
+.app-mode-simulator .history-item,
+.app-mode-simulator .quality-note,
+.app-mode-simulator .report-hint,
+.app-mode-simulator .table-shell,
+.app-mode-simulator .report-chart-frame {
+  background: rgba(7, 12, 9, 0.34);
+  border-color: rgba(126, 168, 107, 0.18);
+  color: var(--text);
+}
+
+.app-mode-simulator .thread-row.is-active,
+.app-mode-simulator .file-row.is-active {
+  background: linear-gradient(180deg, rgba(69, 105, 77, 0.92), rgba(33, 54, 39, 0.96));
+}
+
+.app-mode-simulator .thread-row.is-unread {
+  outline-color: rgba(197, 154, 88, 0.66);
+}
+
+.app-mode-simulator .terminal-editor {
+  background: #07110b;
+  color: #dff3d7;
+  border-color: rgba(126, 168, 107, 0.28);
+}
+
+.app-mode-simulator .data-table thead th {
+  background: rgba(36, 65, 49, 0.96);
+  color: #eff8ed;
+}
+
+.app-mode-simulator .data-table th,
+.app-mode-simulator .data-table td {
+  border-bottom-color: rgba(126, 168, 107, 0.12);
+}
+
+.app-mode-simulator .modal-backdrop {
+  background: rgba(0, 0, 0, 0.58);
+}
+
+.app-mode-simulator .modal-card__body {
+  white-space: pre-line;
+}
+
+.app-mode-simulator .taskbar-nav {
+  overflow-x: auto;
+  scrollbar-gutter: stable;
+}
+
+.app-mode-simulator .taskbar-button,
+.app-mode-simulator .taskbar-status {
+  flex-shrink: 0;
+}
+
+.sim-home-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+  gap: var(--shell-gap, 14px);
+  align-items: stretch;
+}
+
+.sim-home-hero__content {
+  min-height: 280px;
+  padding: clamp(18px, 2.6vw, 34px);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 14px;
+  border: 1px solid rgba(126, 168, 107, 0.22);
+  border-radius: var(--panel-radius, 12px);
+  background:
+    linear-gradient(135deg, rgba(126, 168, 107, 0.18), transparent 42%),
+    linear-gradient(180deg, rgba(30, 49, 36, 0.96), rgba(11, 18, 13, 0.98));
+  box-shadow: 0 18px 42px rgba(0, 0, 0, 0.28);
+}
+
+.sim-home-hero__content h1 {
+  max-width: 720px;
+  font-size: clamp(2rem, 4vw, 4.4rem);
+  line-height: 0.98;
+}
+
+.sim-home-hero__content p {
+  max-width: 760px;
+  font-size: 1rem;
+}
+
+.sim-command-panel {
+  padding: 16px;
+  display: grid;
+  align-content: start;
+  gap: 12px;
+}
+
+.portfolio-hero__actions,
+.portfolio-section__head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.portfolio-panel-title {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #dcebd8;
+}
+
+.portfolio-panel-metric {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(126, 168, 107, 0.14);
+}
+
+.portfolio-panel-metric span,
+.portfolio-panel-note {
+  color: var(--muted);
+}
+
+.portfolio-panel-metric strong {
+  color: #eef8eb;
+  font-size: 1.2rem;
+}
+
+.portfolio-section {
+  display: grid;
+  gap: 12px;
+}
+
+.portfolio-section__head h2 {
+  font-size: 1.3rem;
+}
+
+.sim-step-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--shell-gap, 14px);
+}
+
+.sim-step {
+  min-height: 210px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sim-step.is-active {
+  border-color: rgba(126, 168, 107, 0.58);
+  box-shadow:
+    inset 0 0 0 1px rgba(126, 168, 107, 0.24),
+    0 22px 42px rgba(0, 0, 0, 0.28);
+}
+
+.sim-step__index {
+  width: 38px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(165, 121, 79, 0.18);
+  border: 1px solid rgba(197, 154, 88, 0.32);
+  color: #efdcc2;
+  font-weight: 700;
+}
+
+.sim-step p {
+  flex: 1;
+}
+
+@media (max-width: 1023px) {
+  .sim-home-hero,
+  .sim-step-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .sim-home-hero__content {
+    min-height: 240px;
+  }
+}
+
+@media (max-width: 767px) {
+  .app-mode-simulator .dock-panel__body--simulator {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .sim-step {
+    min-height: 0;
+  }
+}

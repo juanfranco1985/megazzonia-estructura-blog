@@ -1,0 +1,296 @@
+.view-terminal {
+  display: flex;
+  flex-direction: column;
+  gap: var(--shell-gap, 12px);
+  min-height: 0;
+  overflow: hidden;
+}
+
+.terminal-context-panel,
+.terminal-editor-panel,
+.terminal-schema-panel,
+.terminal-result-panel,
+.terminal-history-panel {
+  min-height: 0;
+}
+
+.terminal-context-panel .panel-card__body,
+.terminal-editor-panel .panel-card__body,
+.terminal-schema-panel .panel-card__body,
+.terminal-result-panel .panel-card__body,
+.terminal-history-panel .panel-card__body {
+  min-height: 0;
+}
+
+.terminal-context-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.terminal-context-card {
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(18, 24, 28, 0.14);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.42) 0%, rgba(214, 220, 215, 0.9) 100%);
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.82),
+    inset -1px -1px 0 rgba(62, 71, 76, 0.08);
+}
+
+.terminal-context-card__label,
+.terminal-editor-kicker,
+.terminal-panel-subtitle {
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--muted);
+}
+
+.terminal-context-card__value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.terminal-context-card__note,
+.terminal-editor-note,
+.terminal-panel-copy {
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: var(--muted);
+}
+
+.terminal-layout {
+  display: grid;
+  grid-template-columns: minmax(360px, 1.08fr) minmax(0, 0.92fr);
+  gap: var(--shell-gap, 12px);
+  flex: 1;
+  min-height: 0;
+  align-items: stretch;
+}
+
+.terminal-editor-panel,
+.terminal-schema-panel,
+.terminal-result-panel,
+.terminal-history-panel {
+  min-width: 0;
+}
+
+.terminal-editor-panel .panel-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.terminal-editor-toolbar,
+.terminal-panel-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.terminal-editor-status,
+.terminal-output-meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.terminal-editor-shell {
+  display: grid;
+  gap: 10px;
+}
+
+.terminal-editor {
+  width: 100%;
+  min-height: clamp(220px, 34vh, 360px);
+  padding: 14px 16px;
+  border: 1px solid rgba(18, 24, 28, 0.24);
+  background: linear-gradient(180deg, #f1f5f1 0%, #d7ddd8 100%);
+  color: var(--text);
+  font-family: "Consolas", "Courier New", monospace;
+  font-size: 0.88rem;
+  line-height: 1.58;
+  letter-spacing: 0.01em;
+  tab-size: 2;
+  resize: vertical;
+  overflow: auto;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.84),
+    inset -1px -1px 0 rgba(67, 74, 79, 0.12);
+}
+
+.terminal-editor::selection {
+  background: rgba(79, 110, 131, 0.24);
+}
+
+.terminal-editor:focus {
+  outline: none;
+  border-color: rgba(79, 110, 131, 0.52);
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.84),
+    inset -1px -1px 0 rgba(67, 74, 79, 0.12),
+    0 0 0 2px rgba(79, 110, 131, 0.14);
+}
+
+.terminal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.terminal-actions .retro-button {
+  min-width: 120px;
+}
+
+.terminal-stack {
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: var(--shell-gap, 12px);
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  align-content: start;
+}
+
+.terminal-schema-panel .panel-card__body,
+.terminal-result-panel .panel-card__body,
+.terminal-history-panel .panel-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.terminal-schema-chips {
+  align-content: start;
+}
+
+.terminal-output-meta {
+  align-items: center;
+}
+
+.terminal-panel-copy {
+  max-width: 56ch;
+}
+
+.table-shell--results {
+  max-height: clamp(240px, 34vh, 420px);
+}
+
+.table-shell--results .data-table {
+  min-width: max(100%, 680px);
+  width: max-content;
+}
+
+.table-shell--results .data-table thead th {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: linear-gradient(180deg, rgba(113, 129, 140, 0.98) 0%, rgba(87, 103, 114, 0.98) 100%);
+  color: #f4f8f5;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-size: 0.72rem;
+}
+
+.table-shell--results .data-table tbody tr:nth-child(even) td {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.table-shell--results .data-table td {
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.data-table__cell {
+  vertical-align: top;
+}
+
+.data-table__cell--numeric {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table__cell--date {
+  font-variant-numeric: tabular-nums;
+}
+
+.data-table__cell--empty {
+  color: var(--muted);
+  font-style: italic;
+}
+
+.terminal-error {
+  padding: 12px 14px;
+  border-left: 4px solid var(--danger);
+  background: rgba(159, 88, 88, 0.12);
+  color: #6d2f2f;
+  font-family: "Consolas", "Courier New", monospace;
+  line-height: 1.5;
+  white-space: pre-wrap;
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.65),
+    inset -1px -1px 0 rgba(67, 74, 79, 0.08);
+}
+
+.terminal-footnote {
+  margin-top: 2px;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+
+.history-list {
+  display: grid;
+  gap: 8px;
+  max-height: clamp(160px, 24vh, 260px);
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.history-item {
+  width: 100%;
+  text-align: left;
+  display: grid;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(18, 24, 28, 0.16);
+  background: linear-gradient(180deg, #eef2ef 0%, #d5dbd6 100%);
+  box-shadow:
+    inset 1px 1px 0 rgba(255, 255, 255, 0.72),
+    inset -1px -1px 0 rgba(67, 74, 79, 0.08);
+}
+
+.history-item:hover {
+  filter: brightness(1.01);
+}
+
+.history-item.is-latest {
+  background: linear-gradient(180deg, rgba(223, 232, 236, 0.96) 0%, rgba(196, 212, 218, 0.96) 100%);
+  border-color: rgba(79, 110, 131, 0.3);
+}
+
+.history-item.is-failed {
+  border-color: rgba(159, 88, 88, 0.3);
+  background: linear-gradient(180deg, rgba(239, 224, 224, 0.96) 0%, rgba(226, 201, 201, 0.96) 100%);
+}
+
+.history-item__head {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: baseline;
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.history-item__preview {
+  color: var(--text);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}

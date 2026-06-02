@@ -1,0 +1,63 @@
+{
+  "id": "mission_002_web_category_mix",
+  "slug": "web-category-mix",
+  "title": "Categoría líder dentro del canal Web",
+  "status": "locked",
+  "priority": "medium",
+  "stakeholder_id": "nico_ortega",
+  "week_window": {
+    "start": "2026-04-06",
+    "end": "2026-04-12"
+  },
+  "narrative": "Marketing quiere profundizar el corte comercial anterior para entender qué categoría domina revenue dentro del canal Web.",
+  "business_goal": "Identificar la categoría dominante dentro del canal Web para orientar foco de campaña.",
+  "analytical_goal": "Reutilizar la base limpia, mantener el mismo corte semanal, filtrar Web y agrupar por product_category.",
+  "attachments": [
+    {
+      "id": "sales_dirty_csv",
+      "name": "sales_dirty.csv",
+      "type": "csv",
+      "path": "data/mission_002_web_category_mix/raw/sales_dirty.csv",
+      "label": "raw export"
+    },
+    {
+      "id": "schema_json",
+      "name": "schema.json",
+      "type": "json",
+      "path": "data/mission_002_web_category_mix/schema.json",
+      "label": "analysis schema"
+    }
+  ],
+  "skills_taught": [
+    "channel_segmentation",
+    "category_mix_analysis",
+    "marketing_reporting"
+  ],
+  "prestige_reward": 18,
+  "pains": [
+    "El pedido ahora exige segmentar por canal antes de comparar categorías.",
+    "Marketing quiere una respuesta accionable y no una tabla extensa.",
+    "La misión depende de reutilizar correctamente la base limpia de la entrega anterior."
+  ],
+  "hints": [
+    "Mantén el mismo corte de fechas que en la misión comercial.",
+    "Filtra únicamente el canal Web antes de agrupar.",
+    "La categoría ganadora esperada es SaaS cuando el análisis está bien armado."
+  ],
+  "expected_answer": {
+    "winning_channel": "SaaS",
+    "metric": "total_amount",
+    "recommended_chart": "bar"
+  },
+  "common_errors": [
+    "Olvidar filtrar Web antes de comparar categorías.",
+    "Repetir el análisis por canal en lugar de cambiar a categoría.",
+    "Perder el corte semanal original.",
+    "Usar el export crudo en lugar de sales_clean."
+  ],
+  "success_criteria": [
+    "El reporte identifica correctamente la categoría líder en Web.",
+    "La consulta usa sales_clean con el mismo corte semanal y pedidos completed.",
+    "La conclusión ejecutiva menciona SaaS y el foco digital."
+  ]
+}

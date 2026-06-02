@@ -1,0 +1,41 @@
+{
+  "mission_id": "mission_002_web_category_mix",
+  "source_file": "raw/sales_dirty.csv",
+  "raw_table": {
+    "name": "sales_raw",
+    "description": "Import directo del CSV sin modificar.",
+    "columns": [
+      { "name": "order_id", "type": "text" },
+      { "name": "customer_name", "type": "text" },
+      { "name": "region", "type": "text" },
+      { "name": "sale_date", "type": "text" },
+      { "name": "sales_channel", "type": "text" },
+      { "name": "product_category", "type": "text" },
+      { "name": "amount", "type": "text" },
+      { "name": "salesperson", "type": "text" },
+      { "name": "status", "type": "text" }
+    ]
+  },
+  "clean_table": {
+    "name": "sales_clean",
+    "description": "Vista normalizada reutilizable para análisis comercial y marketing.",
+    "columns": [
+      { "name": "order_id", "type": "text" },
+      { "name": "customer_name", "type": "text" },
+      { "name": "region", "type": "text" },
+      { "name": "sale_date", "type": "text", "format": "YYYY-MM-DD" },
+      { "name": "sales_channel", "type": "text" },
+      { "name": "product_category", "type": "text" },
+      { "name": "amount", "type": "real" },
+      { "name": "salesperson", "type": "text" },
+      { "name": "status_norm", "type": "text" },
+      { "name": "source_row", "type": "integer" },
+      { "name": "row_quality", "type": "text" }
+    ]
+  },
+  "validation_notes": [
+    "El corte temporal correcto es 2026-04-06 a 2026-04-12 inclusive.",
+    "La validación debe verificar status completed y filtro de sales_channel = Web.",
+    "La categoría ganadora esperada es SaaS cuando el corte y la limpieza se aplican correctamente."
+  ]
+}

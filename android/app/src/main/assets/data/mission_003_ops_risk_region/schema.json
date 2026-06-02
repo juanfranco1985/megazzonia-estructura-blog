@@ -1,0 +1,4 @@
+{
+  "target_table": "sales_clean",
+  "metric": "issue_orders"
+}

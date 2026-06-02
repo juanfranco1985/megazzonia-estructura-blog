@@ -1,0 +1,141 @@
+.view-files {
+  overflow: hidden;
+}
+
+.files-overview {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.file-list-panel {
+  min-width: 0;
+}
+
+.file-list-panel .panel-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.files-sidebar-note {
+  padding: 10px 12px;
+  border: 1px solid rgba(17, 24, 28, 0.12);
+  background: rgba(255, 255, 255, 0.34);
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+.file-list {
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.files-detail-stack {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 12px;
+}
+
+.file-detail {
+  min-height: 0;
+}
+
+.file-detail .panel-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+  min-height: 0;
+  overflow: auto;
+  padding-right: 4px;
+}
+
+.file-detail__header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.file-detail__name {
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.file-detail__subtitle {
+  color: var(--muted);
+  font-size: 0.82rem;
+  margin-top: 4px;
+  word-break: break-all;
+}
+
+.preview-section {
+  display: grid;
+  gap: 8px;
+}
+
+.preview-section__title {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+}
+
+.files-support-panels {
+  margin-top: 0;
+}
+
+.files-next-step,
+.quality-note {
+  padding: 10px 12px;
+  border: 1px solid rgba(17, 24, 28, 0.12);
+  background: rgba(255, 255, 255, 0.34);
+  font-size: 0.84rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+.file-detail__actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: auto;
+}
+
+@media (max-width: 1023px) {
+  .files-overview {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .files-detail-stack {
+    grid-template-rows: auto;
+  }
+
+  .file-list-panel .panel-card__body,
+  .file-detail .panel-card__body,
+  .file-list {
+    overflow: visible;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .files-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .file-detail__header,
+  .file-detail__actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
