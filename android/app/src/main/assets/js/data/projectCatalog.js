@@ -257,6 +257,19 @@ export const projectCatalog = [
     readmePath: `${WORKSPACE_ROOT_PREFIX}/Juegos Procedurales/Sudoku/README.md`
   },
   {
+    id: "procedural-playworks",
+    title: "Procedural Playworks",
+    category: "Juegos y experiencias",
+    kind: "Suite procedural",
+    status: "Entrada web + Android",
+    statusTone: "success",
+    description: "Suite de 20 juegos procedurales con semillas reproducibles, perfiles, campana, logros, audio sintetico y wrapper Android.",
+    tech: ["HTML", "CSS", "JavaScript", "Canvas", "PWA", "Android WebView"],
+    entryPath: `${WORKSPACE_ROOT_PREFIX}/Sistema de juegos procedurales 2/web/index.html`,
+    readmePath: `${WORKSPACE_ROOT_PREFIX}/Sistema de juegos procedurales 2/README.md`,
+    actionLabel: "Abrir suite"
+  },
+  {
     id: "motorcraft-codex-2",
     title: "3D Motor Winding Lab",
     category: "Simuladores tecnicos",
